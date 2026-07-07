@@ -99,7 +99,6 @@ To optimize for both speed and extreme accuracy, enterprise-grade AI application
 
 ### Why should we add a reranker like Cohere or BGE to our RAG pipeline?"
 
-## Give this structured 3-point answer:
 
 **It Solves the "Embedding Bottleneck":** > "Bi-encoders lose granular token interactions because they compress text into a single vector. A Cross-Encoder like BGE or Cohere evaluates the query and document together, allowing the attention heads to map direct relationships between words."
 
