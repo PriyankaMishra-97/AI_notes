@@ -63,6 +63,13 @@ While Hybrid Search and RAG-Fusion provide excellent candidate pools, standard v
 * **Mechanism:** The user query and the candidate document are concatenated directly into a single string (e.g., `[CLS] User Query [SEP] Document Candidate [SEP]`) and fed into a deep Transformer simultaneously.
 * **Attributes:** The model's internal self-attention mechanisms compute weights between *every single word in the query* and *every single word in the document*. This yields superior precision, but is computationally expensive and slow. Running a Cross-Encoder directly against an entire enterprise database of millions of documents is impossible at runtime.
 
+**Different Cross-Encoders**
+**Cohere Rerank (The Enterprise Standard)**
+Cohere Rerank is a powerful, proprietary, closed-source reranking model offered via a managed API by the AI company Cohere.
+
+**BGE-Reranker (The Open-Source Standard)**
+BGE-Reranker is a family of highly popular, state-of-the-art open-source Cross-Encoder models developed by BAAI (Beijing Academy of Artificial Intelligence). "BGE" stands for BAAI General Embedding.
+
 ### The Two-Stage Retrieval Architecture
 To optimize for both speed and extreme accuracy, enterprise-grade AI applications implement a **Two-Stage Retrieval Pipeline**:
 
