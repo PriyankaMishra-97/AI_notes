@@ -95,3 +95,14 @@ To optimize for both speed and extreme accuracy, enterprise-grade AI application
 * **Mitigates "Lost in the Middle" Bias:** LLMs struggle to recall information buried in the middle of massive context windows. Trimming the input to the absolute most relevant chunks improves generation quality.
 * **Optimizes Infrastructure Cost:** Eliminating irrelevant text chunks reduces token usage, cutting down overall cloud inference costs.
 * **Maximizes Precision:** It ensures that even if the initial vector distance scoring was imprecise due to wording variations, the transformer's deep attention mechanism captures the exact contextual match before the final response is generated.
+
+
+### Why should we add a reranker like Cohere or BGE to our RAG pipeline?"
+
+## Give this structured 3-point answer:
+
+**It Solves the "Embedding Bottleneck":** > "Bi-encoders lose granular token interactions because they compress text into a single vector. A Cross-Encoder like BGE or Cohere evaluates the query and document together, allowing the attention heads to map direct relationships between words."
+
+**It Permits Bad Embedding Models:** > "Adding a reranker allows us to use a cheaper, faster, or older embedding model for Stage 1. The initial search just needs to ensure the right document is in the top 100 (high recall). The Cross-Encoder will do the heavy lifting to pull it to the absolute top (high precision)."
+
+**It Directly Improves LLM Output:** > "LLMs suffer from 'Lost in the Middle' bias, meaning if the right answer is hidden in the 7th out of 10 chunks, the LLM might miss it. Cohere/BGE ensures that the most relevant answer is always in slot #1 or #2, drastically reducing hallucinations."
